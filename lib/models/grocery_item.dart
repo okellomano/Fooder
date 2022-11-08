@@ -21,12 +21,12 @@ class GroceryItem {
       this.isComplete = false});
 
   GroceryItem copyWith(
-      {required String id,
-      required String name,
-      required Importance importance,
-      required Color color,
-      required int quantity,
-      required DateTime date,
+      {String? id,
+      String? name,
+      Importance? importance,
+      Color? color,
+      int? quantity,
+      DateTime? date,
       bool? isComplete}) {
     return GroceryItem(
         id: id ?? this.id,
