@@ -4,6 +4,8 @@ import 'package:fooderlich/components/card2.dart';
 import 'package:fooderlich/components/card3.dart';
 import 'package:fooderlich/models/models.dart';
 import 'package:fooderlich/screens/explore_screen.dart';
+import 'package:fooderlich/screens/grocery_screen.dart';
+import 'package:fooderlich/screens/recipes_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,13 +19,8 @@ class _HomeState extends State<Home> {
 
   static List<Widget> pages = <Widget>[
     ExploreScreen(),
-    // TODO: Replace with Recipe screen
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.blue,
-    )
+    RecipeScreen(),
+    const GroceryScreen()
   ];
 
   void _onItemTapped(int index) {

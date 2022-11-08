@@ -24,10 +24,8 @@ class ExploreScreen extends StatelessWidget {
               ),
 
               // TODO: Replace this with FriendPostListView
-              Container(
-                height: 400,
-                color: Colors.green,
-              )
+
+              FriendPostListView(friendPosts: snapshot.data.friendPosts)
             ],
           );
           final recipes = snapshot.data.todayRecipes;
