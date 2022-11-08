@@ -100,7 +100,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             buildNameField(),
             buildImportanceField(),
             buildDateField(context),
-            //add time picker
+            buildTimeField(context),
             //add color picker
             //add slider
             //add grocery tile
@@ -219,6 +219,38 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
           ],
         ),
         if (_dueDate != null) Text(DateFormat('yyyy-MM-dd').format(_dueDate)),
+      ],
+    );
+  }
+
+  Widget buildTimeField(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Time of Day',
+              style: GoogleFonts.lato(fontSize: 28.0),
+            ),
+            TextButton(
+              child: const Text('Select'),
+              onPressed: () async {
+                final timeOfDay = await showTimePicker(
+                  initialTime: TimeOfDay.now(),
+                  context: context,
+                );
+                setState(() {
+                  if (timeOfDay != null) {
+                    _timeOfDay = timeOfDay;
+                  }
+                });
+              },
+            ),
+          ],
+        ),
+        if (_timeOfDay != null) Text('${_timeOfDay.format(context)}'),
       ],
     );
   }
