@@ -3,6 +3,7 @@ import 'package:fooderlich/screens/empty_grocery_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:fooderlich/models/models.dart';
 import 'package:fooderlich/screens/grocery_item_screen.dart';
+import 'package:fooderlich/screens/grocery_list_screen.dart';
 
 class GroceryScreen extends StatelessWidget {
   const GroceryScreen({Key? key}) : super(key: key);
@@ -14,7 +15,9 @@ class GroceryScreen extends StatelessWidget {
         builder: (context, manager, child) {
           if (manager.groceryItems.isNotEmpty) {
             //add gorcery list
-            return Container();
+            return GroceryListScreen(
+              manager: manager,
+            );
           } else {
             return const EmptyGroceryScreen();
           }
